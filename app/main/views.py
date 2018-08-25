@@ -10,7 +10,7 @@ from flask import render_template, jsonify, Response
 from flask import request, make_response
 
 from app import db
-from app.main.plots import vertical_bar_chart_from_data_frame2
+# from app.main.plots import vertical_bar_chart_from_data_frame2
 from app.models import User, Project, Email
 from config import basedir
 from . import main
