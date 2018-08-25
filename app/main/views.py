@@ -155,7 +155,7 @@ def project_create_update(params, project_id):
             db.session.commit()
 
 
-from flask_datatables import utils
+# from flask_datatables import utils
 
 
 def row2dict(row):
@@ -185,9 +185,9 @@ def get_data(table):
 #     return jsonify(status='ok')
 
 
-@main.route('/email', methods=['GET', 'POST'])
-def email():
-    return utils.render_table(session=db.session, model=Email)
+# @main.route('/email', methods=['GET', 'POST'])
+# def email():
+#     return utils.render_table(session=db.session, model=Email)
 
 
 # @csrf.exempt
