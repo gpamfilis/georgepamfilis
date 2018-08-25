@@ -1,0 +1,47 @@
+{% macro show_gallery() %}
+
+<div class="container-fluid">
+    <div class="gallery-pt">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">Project Gallery</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 gallery-pt--filter-container">
+                <ul class="list-inline filters">
+                    <li class="list-item active"><a class="text-uppercase" href="#">All</a></li>
+                    {% for category in categories %}
+
+                    <li class="list-item"><a class="text-uppercase" href="#">{{ category }}</a></li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-12 gallery-pt--body">
+
+                {% for images in images_full_path %}
+
+                <div class="item col-sm-4 col-xs-6 col-md-3 col-lg-3"><a href="{{hrefs[loop.index-1]}}"
+                                                                         target="_blank"
+                                                                         class="text-right thumbnail"><img
+                        src="{{ images[1] }}" class="img-responsive" data-album="{{images[0]|lower}}">
+                    <large class="text-muted">{{names[loop.index-1]}}</large>
+                </a></div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endmacro %}
