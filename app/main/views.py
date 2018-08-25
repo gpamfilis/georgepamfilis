@@ -5,7 +5,7 @@ import string
 
 # import pythoncom
 # import win32com.client as win32
-from bokeh.embed import components
+# from bokeh.embed import components
 from flask import render_template, jsonify, Response
 from flask import request, make_response
 
@@ -76,50 +76,50 @@ def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
 
-@main.route('stats')
-def general_stats():
-    items = [list(row2dict(result).values()) for result in db.session.query(Project).all()]
-    # print(request.method)
-    params = ['project_title', 'year_1', 'year_2', 'year_3', 'year_4', 'year_5', 'justification', 'comments']
+# @main.route('stats')
+# def general_stats():
+#     items = [list(row2dict(result).values()) for result in db.session.query(Project).all()]
+#     # print(request.method)
+#     params = ['project_title', 'year_1', 'year_2', 'year_3', 'year_4', 'year_5', 'justification', 'comments']
+#
+#     fields = params[:]
+#     fields.insert(0, 'id')
+#     data = pd.DataFrame(items, columns=fields)
+#     # print(data.head())
+#     nans = np.round(data.isnull().sum() / data.shape[0], 2).to_frame()
+#     nans.columns = ['Percent']
+#     plot = vertical_bar_chart_from_data_frame2(nans, column='Percent', title='test')
+#     script, div = components(plot)
+#     feature_names = nans.index.values.tolist()
+#     return render_template("main/basic_analysis.html", script=script, div=div, feature_names=feature_names)
 
-    fields = params[:]
-    fields.insert(0, 'id')
-    data = pd.DataFrame(items, columns=fields)
-    # print(data.head())
-    nans = np.round(data.isnull().sum() / data.shape[0], 2).to_frame()
-    nans.columns = ['Percent']
-    plot = vertical_bar_chart_from_data_frame2(nans, column='Percent', title='test')
-    script, div = components(plot)
-    feature_names = nans.index.values.tolist()
-    return render_template("main/basic_analysis.html", script=script, div=div, feature_names=feature_names)
 
-
-@main.route('/table1', methods=['GET', 'POST'])
-def table1():
-    name = "Suez Budget Data Collection"
-    model = 'project'
-    items = [list(row2dict(result).values()) for result in db.session.query(Project).all()]
-    # print(request.method)
-    params = ['project_title', 'year_1', 'year_2', 'year_3', 'year_4', 'year_5', 'justification', 'comments']
-
-    fields = params[:]
-    fields.insert(0, 'id')
-    try:
-        data = pd.DataFrame(items, columns=fields)
-        # print(data.head())
-        nans = np.round(data.isnull().sum() / data.shape[0], 2).to_frame()
-        nans.columns = ['Percent']
-        plot = vertical_bar_chart_from_data_frame2(nans, column='Percent', title='test')
-        script, div = components(plot)
-    except:
-        script, div = None, None
-
-    if request.method == 'POST':  # this block is only entered when the form is submitted
-        project_id = request.args.get('project_id', None, int)
-        project_create_update(params, project_id)
-    return render_template('main/index.html', headers=fields, script=script, div=div, name=name, model=model)
-    # else:
-    #     return render_template('main/index.html', headers=fields, script=script, div=div)
+# @main.route('/table1', methods=['GET', 'POST'])
+# def table1():
+#     name = "Suez Budget Data Collection"
+#     model = 'project'
+#     items = [list(row2dict(result).values()) for result in db.session.query(Project).all()]
+#     # print(request.method)
+#     params = ['project_title', 'year_1', 'year_2', 'year_3', 'year_4', 'year_5', 'justification', 'comments']
+#
+#     fields = params[:]
+#     fields.insert(0, 'id')
+#     try:
+#         data = pd.DataFrame(items, columns=fields)
+#         # print(data.head())
+#         nans = np.round(data.isnull().sum() / data.shape[0], 2).to_frame()
+#         nans.columns = ['Percent']
+#         plot = vertical_bar_chart_from_data_frame2(nans, column='Percent', title='test')
+#         script, div = components(plot)
+#     except:
+#         script, div = None, None
+#
+#     if request.method == 'POST':  # this block is only entered when the form is submitted
+#         project_id = request.args.get('project_id', None, int)
+#         project_create_update(params, project_id)
+#     return render_template('main/index.html', headers=fields, script=script, div=div, name=name, model=model)
+#     # else:
+#     #     return render_template('main/index.html', headers=fields, script=script, div=div)
 
 
 def project_create_update(params, project_id):
