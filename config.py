@@ -69,7 +69,9 @@ class PythonAnywhereConfig(Config):
     MAIL_USE_TLS = True
     MAIL_USERNAME = 'username'  # os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = 'password'  # os.environ.get('MAIL_PASSWORD')
-    SQLALCHEMY_DATABASE_URI = ''
+    # SQLALCHEMY_DATABASE_URI = ''
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'tests/test.db')
+
 
 
 class DigitalOceanConfig(Config):
