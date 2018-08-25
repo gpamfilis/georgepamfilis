@@ -3,8 +3,8 @@ import json
 import random
 import string
 
-import pythoncom
-import win32com.client as win32
+# import pythoncom
+# import win32com.client as win32
 from bokeh.embed import components
 from flask import render_template, jsonify, Response
 from flask import request, make_response
@@ -227,21 +227,21 @@ def download():
     return output
 
 
-@main.route('/send_emails', methods=['POST'])
-def send_emails():
-    pythoncom.CoInitialize()
-    outlook = win32.Dispatch('outlook.application')
-    items = [email for email in db.session.query(Email).all()]
-    domain = '127.0.0.1:5000'
-    for email in items:
-        mail = outlook.CreateItem(0)
-        mail.To = email.email
-        mail.Subject = 'Budget Login links Testing Web App'
-        mail.Body = 'Message body'
-        mail.HTMLBody = '<h2>{0}?token={1}</h2>'.format(domain, email.token)  # this field is optional
-
-        mail.Send()
-    # def generate():
+# @main.route('/send_emails', methods=['POST'])
+# def send_emails():
+#     pythoncom.CoInitialize()
+#     outlook = win32.Dispatch('outlook.application')
+#     items = [email for email in db.session.query(Email).all()]
+#     domain = '127.0.0.1:5000'
+#     for email in items:
+#         mail = outlook.CreateItem(0)
+#         mail.To = email.email
+#         mail.Subject = 'Budget Login links Testing Web App'
+#         mail.Body = 'Message body'
+#         mail.HTMLBody = '<h2>{0}?token={1}</h2>'.format(domain, email.token)  # this field is optional
+#
+#         mail.Send()
+#     # def generate():
     #     x = 0
     #     for i in range(10):
     #         print('SENDING')
