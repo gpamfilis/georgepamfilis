@@ -23,7 +23,7 @@ except ImportError:
 import pandas as pd
 import numpy as np
 import os
-import secrets
+# import secrets
 
 
 @main.route('/')
@@ -176,13 +176,13 @@ def get_data(table):
     return jsonify(items=items)
 
 
-@main.route('/update_email_token', methods=['POST'])
-def update_email_tokens():
-    for email in Email.query.all():
-        # email = Email.query.get(row2dict(row)['id'])
-        email.token = secrets.token_hex(16)
-        db.session.commit()
-    return jsonify(status='ok')
+# @main.route('/update_email_token', methods=['POST'])
+# def update_email_tokens():
+#     for email in Email.query.all():
+#         # email = Email.query.get(row2dict(row)['id'])
+#         email.token = secrets.token_hex(16)
+#         db.session.commit()
+#     return jsonify(status='ok')
 
 
 @main.route('/email', methods=['GET', 'POST'])
