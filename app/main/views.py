@@ -29,7 +29,7 @@ import os
 @main.route('/')
 def index():
     assets_img = os.path.join(os.path.sep, basedir, 'app', 'static', 'img', 'carousel')
-    image_urls = os.listdir(assets_img)
+    image_urls = sorted(os.listdir(assets_img))
     print(image_urls)
     im = [os.path.join(os.path.sep, 'static', 'img', 'carousel', img) for img in image_urls]
     captions = ['Welcome to my webapp', 'I studied at the Technical University of Crete.',
