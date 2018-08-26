@@ -19,7 +19,7 @@ class Config:
 
 class DevelopmentConfig(Config):
     INTERNAL_URL = '127.0.0.1:5000'
-    DEBUG = True
+    # DEBUG = True
     # SERVER_NAME = 'localhost'
     FEATURE_FLAGS = {
         'firebase': False,
@@ -54,6 +54,7 @@ class ProductionConfig(Config):
 
 class PythonAnywhereConfig(Config):
     INTERNAL_URL = '0.0.0.0:5000'
+    DEBUG = True
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
