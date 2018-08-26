@@ -10,7 +10,7 @@
 
     <div class="carousel-inner">
 
-        {% for image_url in image_urls %}
+        {% for image_url in image_urls|sort %}
 
         {% if loop.index ==1 %}
         <div class="carousel-item active">

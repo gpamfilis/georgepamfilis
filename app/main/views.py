@@ -30,6 +30,7 @@ import os
 def index():
     assets_img = os.path.join(os.path.sep, basedir, 'app', 'static', 'img', 'carousel')
     image_urls = os.listdir(assets_img)
+    print(image_urls)
     im = [os.path.join(os.path.sep, 'static', 'img', 'carousel', img) for img in image_urls]
     captions = ['Welcome to my webapp', 'I studied at the Technical University of Crete.',
                 'My home is Ikaria, the island were people forget to die.']
@@ -48,6 +49,7 @@ def gallery(location='static/img/gallery'):
         for image in os.listdir(images):
             image_path = os.path.join(*location.split('/'), category, image)
             images_full_path.append([category, image_path])
+
     return categories, images_full_path, os.path.join(os.path.sep, gallery_categories, 'hrefs.json')
 
 
