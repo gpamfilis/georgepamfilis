@@ -51,7 +51,7 @@ def gallery(location='static/img/gallery'):
     return categories, images_full_path, os.path.join(os.path.sep, gallery_categories, 'hrefs.json')
 
 
-@main.route('/projects')
+@main.route('projects')
 def projects():
     categories, images_full_path, hrefs = gallery()
     with open(hrefs) as f:
