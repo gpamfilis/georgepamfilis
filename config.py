@@ -53,7 +53,7 @@ class ProductionConfig(Config):
 
 
 class PythonAnywhereConfig(Config):
-    INTERNAL_URL = 'gpamfilis.pythonanywhere.com'
+    INTERNAL_URL = '0.0.0.0:5000'
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
