@@ -1,2 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
 /reload_pythonanywhere.py
+/test.db
+/.vscode/
+/.idea/
