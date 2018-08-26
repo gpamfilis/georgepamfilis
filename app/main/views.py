@@ -32,7 +32,8 @@ def index():
     image_urls = sorted(os.listdir(assets_img))
     print(image_urls)
     im = [os.path.join(os.path.sep, 'static', 'img', 'carousel', img) for img in image_urls]
-    captions = ['Welcome to my webapp', 'I studied at the Technical University of Crete.',
+    captions = ['Welcome, My name is George Pamfilis',
+                'I studied Environmental Engineering at the Technical University of Crete.',
                 'My home is Ikaria, the island were people forget to die.']
     return render_template('boot_studio/landing_page.html', image_urls=im, captions=captions)
 
