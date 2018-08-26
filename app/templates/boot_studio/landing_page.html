@@ -29,44 +29,47 @@
                     class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav">
                     <li class="active" role="presentation"><a href="#">RESUME</a></li>
-                    <li role="presentation"><a href="{{url_for('main.projects')}}">PROJECTS</a></li>
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"
-                                            href="#">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li role="presentation"><a href="#">First Item</a></li>
-                            <li role="presentation"><a href="#">Second Item</a></li>
-                            <li role="presentation"><a href="#">Third Item</a></li>
-                        </ul>
-                    </li>
+                    <!--<li role="presentation"><a href="{{url_for('main.projects')}}">PROJECTS</a></li>-->
+                    <!--<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"-->
+                    <!--href="#">Dropdown <span class="caret"></span></a>-->
+                    <!--<ul class="dropdown-menu" role="menu">-->
+                    <!--<li role="presentation"><a href="#">First Item</a></li>-->
+                    <!--<li role="presentation"><a href="#">Second Item</a></li>-->
+                    <!--<li role="presentation"><a href="#">Third Item</a></li>-->
+                    <!--</ul>-->
+                    <!--</li>-->
                 </ul>
                 <!--<p class="navbar-text navbar-right actions"><a class="navbar-link login" href="#">Log In</a> <a-->
-                        <!--class="btn btn-default action-button" role="button" href="#">Sign Up</a></p>-->
+                <!--class="btn btn-default action-button" role="button" href="#">Sign Up</a></p>-->
             </div>
         </div>
     </nav>
 
     {{show_carousel()}}
 
-<div class="footer-basic">
-    <footer>
-        <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i
-                class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a
-                href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i
-                class="icon ion-social-linkedin"></i></a></div>
-        <ul
-                class="list-inline">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Terms</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-        </ul>
-        <p class="copyright">George Pamfilis © 2018</p>
-    </footer>
-</div>
-<script src="/static/assets/js/jquery.min.js"></script>
-<script src="/static/assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="/static/assets/js/Filterable-Gallery.js"></script>
+    <div class="footer-basic">
+        <footer>
+            <div class="social">
+                <a href="https://www.linkedin.com/in/george-pamfilis/"><i class="icon ion-social-linkedin"></i></a>
+                <a href="https://www.instagram.com/georgepamfilis/"><i class="icon ion-social-instagram"></i></a>
+                <!--<a href="#"><i class="icon ion-social-snapchat"></i></a>-->
+                <!--<a href="#"><i class="icon ion-social-twitter"></i></a>-->
+                <!--<a href="#"><i class="icon ion-social-facebook"></i></a>-->
+            </div>
+
+            <ul class="list-inline">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">George Pamfilis © 2018</p>
+        </footer>
+    </div>
+    <script src="/static/assets/js/jquery.min.js"></script>
+    <script src="/static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/assets/js/Filterable-Gallery.js"></script>
 </body>
 
 </html>
