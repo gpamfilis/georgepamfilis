@@ -76,6 +76,7 @@ def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
 
+
 # @main.route('stats')
 # def general_stats():
 #     items = [list(row2dict(result).values()) for result in db.session.query(Project).all()]
