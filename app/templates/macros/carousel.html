@@ -12,7 +12,7 @@
 
         {% for image_url in image_urls %}
             {{image_url }}
-        {% if loop.index ==1 %}
+        {% if loop.index ==0 %}
         <div class="carousel-item active">
             <img class="d-block w-100" src="{{ image_url }}" alt="First slide"
                  style="height: auto; width: 100%;">
