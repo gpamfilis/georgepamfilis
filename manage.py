@@ -4,7 +4,7 @@ from app.models import User
 from flask_script import Manager, Shell
 from flask_migrate import Migrate, MigrateCommand
 
-app = create_app(os.getenv('FLASK_CONFIG') or 'pythonanywhere')
+app = create_app(os.getenv('FLASK_CONFIG') or 'development')
 manager = Manager(app)
 migrate = Migrate(app, db)
 

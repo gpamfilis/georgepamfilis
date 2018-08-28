@@ -1,0 +1,39 @@
+{% macro show_navbar() %}
+<nav class="navbar navbar-default navigation-clean-button">
+    <div class="container">
+        <div class="navbar-header"><a class="navbar-brand" href="#">George Pamfilis</a>
+            <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span
+                    class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                    class="icon-bar"></span><span class="icon-bar"></span></button>
+        </div>
+        <div
+                class="collapse navbar-collapse" id="navcol-1">
+            <ul class="nav navbar-nav">
+                {% if 'show_resume' is active_feature %}
+                <li class="active" role="presentation"><a href="#">RESUME</a></li>
+                {% else %}
+                {% endif %}
+                {% if 'show_projects' is active_feature %}
+                <li role="presentation"><a href="{{url_for('main.projects')}}">PROJECTS</a></li>
+                {% else %}
+                {% endif %}
+                <!---->
+                <!--<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"-->
+                <!--href="#">Dropdown <span class="caret"></span></a>-->
+                <!--<ul class="dropdown-menu" role="menu">-->
+                <!--<li role="presentation"><a href="#">First Item</a></li>-->
+                <!--<li role="presentation"><a href="#">Second Item</a></li>-->
+                <!--<li role="presentation"><a href="#">Third Item</a></li>-->
+                <!--</ul>-->
+                <!--</li>-->
+            </ul>
+            {% if 'show_login_logout' is active_feature %}
+            <p class="navbar-text navbar-right actions"><a class="navbar-link login" href="#">Log In</a>
+                <a class="btn btn-default action-button" role="button" href="#">Sign Up</a></p> {% else %}
+            {% endif %}
+
+        </div>
+    </div>
+</nav>
+
+{% endmacro %}

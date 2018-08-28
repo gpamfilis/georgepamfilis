@@ -1,4 +1,5 @@
 import os
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 
@@ -11,6 +12,11 @@ class Config:
     # JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY') or 'cheese cake'
     # JWT_ALGORITHM = 'SH256'
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
+    FEATURE_FLAGS = {
+        'show_resume': False,
+        'show_projects': False,
+        'show_login_logout': False,
+    }
 
     @staticmethod
     def init_app(app):
@@ -19,15 +25,15 @@ class Config:
 
 class DevelopmentConfig(Config):
     INTERNAL_URL = '127.0.0.1:5000'
-    # DEBUG = True
+    DEBUG = True
     # SERVER_NAME = 'localhost'
-    FEATURE_FLAGS = {
-        'firebase': False,
-        'manage': True,
-        'inventory': True,
-        'finance': True,
-        'reports': True
-    }
+    # FEATURE_FLAGS = {
+    #     'firebase': False,
+    #     'manage': True,
+    #     'inventory': True,
+    #     'finance': True,
+    #     'reports': True
+    # }
     TEMPLATES_AUTO_RELOAD = True
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_PORT = 587
@@ -74,7 +80,6 @@ class PythonAnywhereConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'test.db')
 
 
-
 class DigitalOceanConfig(Config):
     INTERNAL_URL = ''
 
@@ -98,12 +103,11 @@ class DigitalOceanConfig(Config):
 # Todo 31/8/2017 - herokuconfig
 
 
-
 config = {
-            'development': DevelopmentConfig,
-            'testing': TestingConfig,
-            'production': ProductionConfig,
-            'default': DevelopmentConfig,
-            "pythonanywhere": PythonAnywhereConfig,
-            "digitalocean": DigitalOceanConfig
-        }
+    'development': DevelopmentConfig,
+    'testing': TestingConfig,
+    'production': ProductionConfig,
+    'default': DevelopmentConfig,
+    "pythonanywhere": PythonAnywhereConfig,
+    "digitalocean": DigitalOceanConfig
+}
