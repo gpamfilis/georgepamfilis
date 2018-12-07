@@ -13,7 +13,7 @@ class Config:
     # JWT_ALGORITHM = 'SH256'
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     FEATURE_FLAGS = {
-        'show_resume': False,
+        'show_resume': True,
         'show_projects': False,
         'show_login_logout': False,
     }
